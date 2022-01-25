@@ -49,7 +49,7 @@ const Component = props => {
         <div className="message">
           <h2>Welcome</h2>
           <p>
-            <b>iRecord</b>
+            <b>iRecord Luxembourg</b>
             {' '}
 is a platform for management and sharing of your
             wildlife observations. Learn more by swiping left.
@@ -80,9 +80,9 @@ is a platform for management and sharing of your
         <div className="message">
           <h2>Record</h2>
           <p>
-            Record all the wildlife you see. Over 
+            Record all the wildlife you see. Over
             {' '}
-            <b>100,000 taxa</b>
+            <b>70,000 taxa</b>
             {' '}
 to choose
             from.
@@ -113,11 +113,11 @@ to choose
         <div className="message">
           <h2>Accuracy</h2>
           <p>
-            Benefit from your 
+            Benefit from your
             {' '}
             <b>GPS and rich mapping choices</b>
 , further
-            automatic 
+            automatic
             {' '}
             <b>data checks</b>
             {' '}
