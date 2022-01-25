@@ -24,7 +24,7 @@ const CONFIG = {
   log: !__TEST__,
 
   // error analytics
-  sentryDNS: !isTestEnv && process.env.APP_SENTRY_KEY,
+  sentryDNS: false, //!isTestEnv && process.env.APP_SENTRY_KEY,
 
   users: {
     url: `${HOST + Indicia.API_BASE + Indicia.API_VER}/users/`,

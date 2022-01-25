@@ -9,7 +9,6 @@ checkEnv({
   required: [
     'APP_OS_MAP_KEY',
     'APP_MAPBOX_MAP_KEY',
-    'APP_SENTRY_KEY',
     'APP_INDICIA_API_KEY',
   ],
 });
@@ -154,7 +153,7 @@ const config = {
         APP_TRAINING: process.env.APP_TRAINING || false,
         APP_SCREENSHOTS: process.env.APP_SCREENSHOTS || false,
         APP_EXPERIMENTS: process.env.APP_EXPERIMENTS || false,
-        APP_SENTRY_KEY: JSON.stringify(process.env.APP_SENTRY_KEY || ''),
+        //APP_SENTRY_KEY: JSON.stringify(process.env.APP_SENTRY_KEY || ''),
         APP_GA: JSON.stringify(process.env.APP_GA || false),
 
         // https://github.com/webpack-contrib/karma-webpack/issues/316

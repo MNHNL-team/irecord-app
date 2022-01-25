@@ -33,6 +33,7 @@ async function init() {
   await userModel._init;
   await savedSamples._init;
 
+  /* Analytics disabled in Luxembourg.
   appModel.attrs.sendAnalytics &&
     initAnalytics({
       dsn: config.sentryDNS,
@@ -44,6 +45,7 @@ async function init() {
         'app.appSession': appModel.attrs.appSession,
       },
     });
+  */
 
   if (window.cordova) {
     document.addEventListener(
