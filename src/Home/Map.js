@@ -10,7 +10,7 @@ import 'leaflet/dist/images/marker-icon-2x.png';
 import 'leaflet/dist/images/marker-shadow.png';
 import './styles.scss';
 
-const DEFAULT_CENTER = [53.7326306, -2.6546124];
+const DEFAULT_CENTER = [49.75501, 6.09297];
 const MIN_WGS84_ZOOM = 5;
 L.Icon.Default.imagePath = '/images';
 
@@ -33,7 +33,7 @@ class Component extends React.Component {
     this.map.setView(DEFAULT_CENTER, MIN_WGS84_ZOOM);
 
     const layer = L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}',
+      'https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg?access_token={accessToken}',
       {
         attribution:
           '<a href="http://mapbox.com/about/maps" class="mapbox-wordmark" target="_blank">Mapbox</a> © <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="https://www.maxar.com/">Maxar</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',

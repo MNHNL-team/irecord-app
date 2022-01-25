@@ -212,25 +212,6 @@ const helpers = {
   },
 
   /**
-   *
-   * @param {type} location
-   * @returns {Boolean}
-   */
-  isInGB(location) {
-    if (location.latitude) {
-      const nationaGridCoords = bigu.latlng_to_grid_coords(
-        location.latitude,
-        location.longitude
-      );
-      if (!nationaGridCoords) {
-        return false;
-      }
-      return nationaGridCoords.country === 'GB';
-    }
-    return false;
-  },
-
-  /**
    * Checks if location gridref size matches the provided one.
    * @param location
    * @param gridRefSize

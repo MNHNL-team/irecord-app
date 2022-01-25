@@ -57,9 +57,9 @@ const OS_CRS = new L.Proj.CRS(
   }
 );
 
-const DEFAULT_LAYER = 'OS';
-const DEFAULT_LAYER_ZOOM = 1 + OS_ZOOM_DIFF; // 7 and not 1 because of WGS84 scale
-const DEFAULT_CENTER = [53.7326306, -2.6546124];
+const DEFAULT_LAYER = 'OSM';
+const DEFAULT_LAYER_ZOOM = 10; // 7 and not 1 because of WGS84 scale
+const DEFAULT_CENTER = [49.75501, 6.09297];
 
 const GRID_STEP = 100000; // meters
 
@@ -102,7 +102,6 @@ let API = {
     this.$container.dataset.layer = this.currentLayer; // fix the lines between the tiles
 
     this.map.on('baselayerchange', this._updateCoordSystem, this);
-    this.map.on('zoomend', this.onMapZoom, this);
 
     // Controls
     this.addControls();
@@ -128,7 +127,7 @@ let API = {
   getLayers() {
     const layers = {};
     layers.Satellite = L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}',
+      'https://api.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg?access_token={accessToken}',
       {
         attribution: MapBoxAttribution,
         id: CONFIG.map.mapbox_satellite_id,
@@ -138,7 +137,7 @@ let API = {
     );
 
     layers.OSM = L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/256/{z}/{x}/{y}?access_token={accessToken}',
+      'https://api.mapbox.com/styles/v1/mapbox/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
       {
         attribution: MapBoxAttribution,
         id: CONFIG.map.mapbox_osm_id,
@@ -196,7 +195,6 @@ let API = {
 
     this.controls = L.control.layers(
       {
-        'Ordnance Survey': this.layers.OS,
         'Open Street Map': this.layers.OSM,
         Satellite: this.layers.Satellite,
       },
@@ -300,40 +298,11 @@ let API = {
     return normalZoom;
   },
 
-  onMapZoom() {
-    const zoom = this.getMapZoom();
-    Log(`Location:MainView:Map: executing onMapZoom: ${zoom}`);
-
-    const validOSZoom = API._isValidOSZoom(zoom);
-
-    if (this.currentLayer === 'OS' && !validOSZoom) {
-      // change to WGS84
-      Log('Location:MainView:Map: changing to OS layer');
-      this.map.removeLayer(this.layers.OS);
-      this.map.addLayer(this.layers.Satellite);
-    } else {
-      const isSatellite = this.currentLayer === 'Satellite';
-      if (isSatellite && validOSZoom) {
-        // only change base layer if user is on OS and did not specificly
-        // select OSM/Satellite
-        const inGB = LocHelp.isInGB(this._getCurrentLocation());
-        if (!this.currentLayerControlSelected && inGB) {
-          Log('Location:MainView:Map: changing to Sattelite layer');
-          this.map.removeLayer(this.layers.Satellite);
-          this.map.addLayer(this.layers.OS);
-        }
-      }
-    }
-  },
-
   _repositionMap(dontZoom) {
     const location = this._getCurrentLocation();
     let zoom;
     if (!dontZoom) {
       zoom = this._metresToMapZoom(location.accuracy);
-      if (this.currentLayer === 'OS') {
-        zoom = this._deNormalizeOSzoom(zoom);
-      }
     } else {
       zoom = this.map.getZoom();
     }
@@ -343,22 +312,9 @@ let API = {
   _getCurrentLayer() {
     let layer = DEFAULT_LAYER;
     const location = this._getCurrentLocation();
-    const zoom = this._metresToMapZoom(location.accuracy);
-    let inGB = LocHelp.isInGB(location);
 
-    if (!location.latitude) {
-      // if no location default to true
-      inGB = true;
-    }
-
-    const validOSzoom = this._isValidOSZoom(zoom);
-
-    if (!validOSzoom) {
-      layer = 'Satellite';
-    } else if (!inGB) {
-      this.currentLayerControlSelected = true;
-      layer = 'Satellite';
-    }
+    this.currentLayerControlSelected = true;
+    layer = 'Satellite';
 
     return layer;
   },
@@ -379,13 +335,6 @@ let API = {
     let zoom = this.getMapZoom();
     this.map.options.crs = L.CRS.EPSG3857;
 
-    // a change from WGS84 -> OS
-    if (nextLayer === 'Ordnance Survey') {
-      zoom = API._deNormalizeOSzoom(zoom);
-      this.map.options.crs = OS_CRS;
-      nextLayer = 'OS';
-    }
-
     this.currentLayer = nextLayer;
 
     this.map.setView(center, zoom, { reset: true });
@@ -398,33 +347,6 @@ let API = {
       center = [location.latitude, location.longitude];
     }
     return center;
-  },
-
-  /**
-   * Checks if the WGS84 map zoom level fits within OSGB map zoom max/min.
-   * @param zoom
-   * @returns {boolean}
-   */
-  _isValidOSZoom(zoom) {
-    const deNormalizedZoom = zoom - OS_ZOOM_DIFF;
-    return deNormalizedZoom >= 0 && deNormalizedZoom <= MAX_OS_ZOOM - 1;
-  },
-
-  /**
-   * Turns WGS84 map zoom into OSGB zoom.
-   * @param zoom
-   * @returns {number}
-   */
-  _deNormalizeOSzoom(zoom) {
-    const deNormalizedZoom = zoom - OS_ZOOM_DIFF;
-    if (deNormalizedZoom > MAX_OS_ZOOM - 1) {
-      return MAX_OS_ZOOM - 1;
-    }
-    if (deNormalizedZoom < 0) {
-      return 0;
-    }
-
-    return deNormalizedZoom;
   },
 
   /**
