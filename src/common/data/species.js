@@ -9,6 +9,15 @@ const optimise = require('./speciesOptimise');
 const FETCH_LIMIT = 50000;
 
 async function fetch() {
+  if (process.argv.length < 4) {
+    return Promise.reject(
+      new Error('Script requires parameters for email and password of a registered user for authorisation.')
+    );
+  }
+
+  const username = process.argv[2];
+  const pw = process.argv[3];
+
   console.log('Pulling all the species from remote report.');
 
   const apiKey = process.env.APP_INDICIA_API_KEY;
@@ -18,25 +27,20 @@ async function fetch() {
     );
   }
 
-  const basicAuth = process.env.APP_INDICIA_BASIC_AUTH;
-  if (!basicAuth) {
-    return Promise.reject(
-      new Error('Requires a user basic auth key set as APP_INDICIA_BASIC_AUTH')
-    );
-  }
-
   const data = [];
   let offset = 0;
-
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const options = {
-      url: `https://www.brc.ac.uk/irecord/api/v1/reports/projects/irecord/taxa/taxa_list_for_app.xml?taxon_list_id=15&limit=${FETCH_LIMIT}&offset=${offset}`,
+      url: `https://data-new.mnhn.lu/api/v1/reports/library/taxa/taxa_list_for_app.xml?taxon_list_id=13&limit=${FETCH_LIMIT}&offset=${offset}`,
       headers: {
         'x-api-key': apiKey,
-        Authorization: `Basic ${basicAuth}`,
         'Cache-Control': 'no-cache',
       },
+      auth: {
+        username: username,
+        password: pw
+      }
     };
 
     // eslint-disable-next-line no-await-in-loop
