@@ -4,7 +4,7 @@
 import Indicia from '@indicia-js/core';
 
 const HOST =
-  process.env.APP_INDICIA_API_HOST || 'https://irecord.org.uk/';
+  process.env.APP_INDICIA_API_HOST || 'https://data-new.mnhn.lu/';
 
 const isTestEnv = process.env.NODE_ENV === 'test';
 
@@ -50,7 +50,7 @@ const CONFIG = {
   indicia: {
     host: HOST,
     api_key: process.env.APP_INDICIA_API_KEY,
-    website_id: 23,
+    website_id: 2,
   },
 };
 

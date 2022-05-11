@@ -199,7 +199,7 @@ class Sample extends Indicia.Sample {
 
   async setToSend() {
     // TODO: remove this once clear why the resubmission occurs
-    // https://www.brc.ac.uk/irecord/node/7194
+    // https://data-new.mnhn.lu/node/7194
     if (this.id || this.metadata.server_on) {
       // an error, this should never happen
       Log(
@@ -274,7 +274,7 @@ class Sample extends Indicia.Sample {
   }
 
   // TODO: remove this once clear why the resubmission occurs
-  // https://www.brc.ac.uk/irecord/node/7194
+  // https://data-new.mnhn.lu/node/7194
   async saveRemote() {
     if (this.id || this.metadata.server_on) {
       // an error, this should never happen
