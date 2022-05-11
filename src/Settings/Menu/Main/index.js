@@ -100,8 +100,6 @@ class Component extends React.Component {
     useTraining: PropTypes.bool.isRequired,
     useExperiments: PropTypes.bool.isRequired,
     sendAnalytics: PropTypes.bool.isRequired,
-    useGridRef: PropTypes.bool.isRequired,
-    useGridMap: PropTypes.bool.isRequired,
     geolocateSurveyEntries: PropTypes.bool.isRequired,
     gridSquareUnit: PropTypes.string.isRequired,
   };
@@ -114,7 +112,6 @@ class Component extends React.Component {
       onToggle,
       useTraining,
       sendAnalytics,
-      useGridRef,
       useExperiments,
       geolocateSurveyEntries,
       useGridMap,
@@ -130,7 +127,7 @@ class Component extends React.Component {
             onClick={() => sendAllSamplesDialog(sendAllSamples)}
           >
             <IonIcon icon={paperPlane} size="small" slot="start" />
-            <IonLabel> 
+            <IonLabel>
               {' '}
               {t('Submit All')}
             </IonLabel>
@@ -144,41 +141,6 @@ class Component extends React.Component {
           </IonItem>
 
           <IonItemDivider>{t('Location')}</IonItemDivider>
-          <IonItem>
-            <IonIcon icon={grid} size="small" slot="start" />
-            <IonLabel>{t('Use Grid Ref')}</IonLabel>
-            <Toggle
-              onToggle={checked => onToggle('useGridRef', checked)}
-              checked={useGridRef}
-            />
-          </IonItem>
-          <IonItem>
-            <IonLabel class="ion-text-wrap">
-              <IonNote color="primary">
-                {t(
-                  'Locations should be represented as UK Grid Reference instead of Latitude and Longitude.'
-                )}
-              </IonNote>
-            </IonLabel>
-          </IonItem>
-          <IonItem>
-            <IonIcon icon={grid} size="small" slot="start" />
-            <IonLabel>{t('Show Map Grid')}</IonLabel>
-            <Toggle
-              onToggle={checked => onToggle('useGridMap', checked)}
-              disabled={!useGridRef}
-              checked={useGridMap}
-            />
-          </IonItem>
-          <IonItem>
-            <IonLabel class="ion-text-wrap">
-              <IonNote color="primary">
-                {t(
-                  'Show UK Grid Reference over the map.'
-                )}
-              </IonNote>
-            </IonLabel>
-          </IonItem>
           <IonItem routerLink="/settings/locations" detail>
             <IonIcon icon={pin} size="small" slot="start" />
             {t('Manage Saved')}

@@ -136,10 +136,10 @@ export default () => (
             {t(
               'You can set all your valid draft records for upload in one go. To do that go to the settings page'
             )}
-            <IonIcon icon={settings} size="small" /> 
+            <IonIcon icon={settings} size="small" />
             {' '}
             {t('and click Submit All')}
-            <IonIcon icon={send} size="small" /> 
+            <IonIcon icon={send} size="small" />
             {' '}
             {t('button')}
 .
@@ -263,12 +263,6 @@ export default () => (
             {t('button')}.
           </p>
         </Collapse>
-        <IonItem>
-          <p>
-            {t('For more help please visit the iRecord')}{' '}
-            <a href={`${CONFIG.site_url}forum/26`}>{t('forum')}</a>.
-          </p>
-        </IonItem>
       </IonList>
     </AppMain>
   </IonPage>

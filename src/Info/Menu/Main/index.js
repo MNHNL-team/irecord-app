@@ -31,7 +31,7 @@ const Component = observer(({ isLoggedIn, user, logOut, appModel }) => {
             <IonIcon icon={exit} size="small" slot="start" />
             {t('Logout')}
             {': '}
-            {user.firstname} 
+            {user.firstname}
             {' '}
             {user.secondname}
           </IonItem>
@@ -72,10 +72,6 @@ const Component = observer(({ isLoggedIn, user, logOut, appModel }) => {
         <IonItem routerLink="/info/help" detail>
           <IonIcon icon={helpBuoy} size="small" slot="start" />
           {t('Help')}
-        </IonItem>
-        <IonItem routerLink="/info/brc-approved" detail>
-          <IonIcon icon={thumbsUp} size="small" slot="start" />
-          {t('BRC Approved')}
         </IonItem>
 
         <IonItem routerLink="/info/credits" detail>
