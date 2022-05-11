@@ -35,7 +35,7 @@ async function deleteAllSamples() {
 
 async function sendAllSamples(userModel) {
   Log('Settings:Menu:Controller: sending all samples.');
- 
+
   if (!userModel.hasLogIn()) {
     warn(t('Please log in first to upload the records.'));
     return;
@@ -80,8 +80,6 @@ const Container = observer(({ appModel, userModel }) => {
   const {
     sendAnalytics,
     useTraining,
-    useGridRef,
-    useGridMap,
     useExperiments,
     gridSquareUnit,
     geolocateSurveyEntries,
@@ -93,8 +91,6 @@ const Container = observer(({ appModel, userModel }) => {
       <Main
         sendAnalytics={sendAnalytics}
         useTraining={useTraining}
-        useGridRef={useGridRef}
-        useGridMap={useGridMap}
         useExperiments={useExperiments}
         gridSquareUnit={gridSquareUnit}
         geolocateSurveyEntries={geolocateSurveyEntries}

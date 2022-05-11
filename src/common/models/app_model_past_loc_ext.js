@@ -75,29 +75,8 @@ export default {
   },
 
   printLocation(location) {
-    const { useGridRef } = this.attrs;
 
     if (location.latitude) {
-      if (useGridRef || location.source === 'gridref') {
-        let { accuracy } = location;
-
-        // cannot be odd
-        if (accuracy % 2 !== 0) {
-          // should not be less than 2
-          accuracy = accuracy === 1 ? accuracy + 1 : accuracy - 1;
-        } else if (accuracy === 0) {
-          accuracy = 2;
-        }
-
-        // check if location is within UK
-        let prettyLocation = LocHelp.locationToGrid(location, accuracy);
-        if (!prettyLocation) {
-          prettyLocation = `${parseFloat(location.latitude).toFixed(
-            4
-          )}, ${parseFloat(location.longitude).toFixed(4)}`;
-        }
-        return prettyLocation;
-      }
       return `${parseFloat(location.latitude).toFixed(4)}, ${parseFloat(
         location.longitude
       ).toFixed(4)}`;

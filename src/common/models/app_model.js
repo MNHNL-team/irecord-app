@@ -14,8 +14,6 @@ const getDefaultAttrs = () => ({
   locations: [],
   attrLocks: { default: {}, complex: {} },
   autosync: true,
-  useGridRef: true,
-  useGridMap: true,
   useTraining: false,
 
   useExperiments: false,
