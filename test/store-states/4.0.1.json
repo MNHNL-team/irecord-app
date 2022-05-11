@@ -71,8 +71,6 @@
           "complex": {}
         },
         "autosync": true,
-        "useGridRef": true,
-        "useGridMap": true,
         "useTraining": false,
         "useExperiments": false,
         "useGridNotifications": false,
@@ -402,12 +400,6 @@
           "name": "Wallingford Castle Grounds",
           "source": "map",
           "id": "aa2940f8-8209-4975-bfbb-164f7a251314"
-        },
-        "vice-county": {
-          "id": "732",
-          "name": "Oxfordshire",
-          "code": "23",
-          "centroid_sref": "51.80925N 1.28816W"
         },
         "comment": "Spent a nice 5 hours surveying the fields."
       },

@@ -242,11 +242,7 @@ let API = {
   addGraticule(appModel) {
     Log('Location:MainView:Map: adding graticule.');
 
-    const { useGridRef } = appModel.attrs;
     const { useGridMap } = appModel.attrs;
-    if (!useGridRef || !useGridMap) {
-      return;
-    }
 
     // eslint-disable-next-line
     const that = this;

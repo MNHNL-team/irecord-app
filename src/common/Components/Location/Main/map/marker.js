@@ -36,13 +36,7 @@ const marker = {
     // remove previous marker
     this._removeMapMarker();
 
-    if (!location.gridref) {
-      // outside GB
-      this._setNonGBMarker(location);
-      return;
-    }
-
-    this._setGBMarker(location, appModel);
+    this._setNonGBMarker(location);
   },
 
   addParentMarker(sample) {
@@ -61,29 +55,6 @@ const marker = {
   _setNonGBMarker(location) {
     // point circle
     this.marker = this.generateCircleMarker(location);
-    this.marker.addTo(this.map);
-  },
-
-  _setGBMarker(location, appModel) {
-    // check if user wants no Grid Reference
-    if (!appModel.attrs.useGridRef) {
-      this._setNonGBMarker(location);
-      return;
-    }
-
-    // GPS sourced marker is both square and circle
-    if (location.source === 'gps') {
-      this.marker = new ComplexMarker(
-        this.generateRectangleMarker(location),
-        this.generateCircleMarker(location, true)
-      );
-      this.marker.square.addTo(this.map);
-      this.marker.circle.addTo(this.map);
-      return;
-    }
-
-    // create an orange rectangle
-    this.marker = this.generateRectangleMarker(location);
     this.marker.addTo(this.map);
   },
 

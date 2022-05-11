@@ -21,8 +21,6 @@ describe('App Model', () => {
       'locations',
       'attrLocks',
       'autosync',
-      'useGridRef',
-      'useGridMap',
       'useExperiments',
       'useTraining',
       'useGridNotifications',
@@ -39,8 +37,6 @@ describe('App Model', () => {
       .to.be.an('object')
       .and.has.all.keys('default', 'complex');
     expect(appModel.attrs.autosync).to.be.equal(true);
-    expect(appModel.attrs.useGridRef).to.be.equal(true);
-    expect(appModel.attrs.useGridMap).to.be.equal(true);
     expect(appModel.attrs.gridSquareUnit).to.be.equal('monad');
   });
 

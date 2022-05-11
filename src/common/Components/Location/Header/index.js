@@ -48,7 +48,7 @@ class Header extends React.Component {
     let value = location.gridref;
 
     // avoid testing location.longitude as this can validly be zero within the UK
-    if ((!appModel.attrs.useGridRef || !value) && location.latitude) {
+    if (!value && location.latitude) {
       value = `${location.latitude}, ${location.longitude}`;
     }
 
