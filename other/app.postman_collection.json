@@ -2654,7 +2654,7 @@
 		{
 			"id": "9fd28711-6c9f-4ea5-9d73-3d9cd6299295",
 			"key": "indicia_api_host",
-			"value": "https://brc.ac.uk/irecord",
+			"value": "https://data-new.mnhn.lu",
 			"type": "string"
 		},
 		{
