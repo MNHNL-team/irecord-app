@@ -40,7 +40,7 @@ function autoIncrementAbundance(sample) {
 const survey = {
   name: 'default',
   label: 'General',
-  id: 576,
+  id: 51,
   complex: true,
 
   webForm: 'enter-app-record-list',
@@ -59,7 +59,6 @@ const survey = {
         const locationAttributes = {
           location_name: name, // location_name is a native indicia attr
           [keys.location_source.id]: source,
-          [keys.location_gridref.id]: gridref,
           [keys.location_altitude.id]: altitude,
           [keys.location_altitude_accuracy.id]: location.altitudeAccuracy,
           [keys.location_accuracy.id]: accuracy,
@@ -81,22 +80,21 @@ const survey = {
         return `${lat.toFixed(7)}, ${lon.toFixed(7)}`;
       },
     },
-    location_accuracy: { id: 282 },
-    location_altitude: { id: 283 },
-    location_altitude_accuracy: { id: 284 },
-    location_source: { id: 760 },
-    location_gridref: { id: 335 },
+    location_accuracy: { id: 176 },
+    location_altitude: { id: 38 },
+    location_altitude_accuracy: { id: 177 },
+    location_source: { id: 178 },
 
     device: {
-      id: 273,
+      id: 179,
       values: {
-        iOS: 2398,
-        Android: 2399,
+        iOS: 18418,
+        Android: 18419,
       },
     },
 
-    device_version: { id: 759 },
-    app_version: { id: 1139 },
+    device_version: { id: 180 },
+    app_version: { id: 181 },
 
     date: {
       values(date) {
@@ -116,7 +114,7 @@ const survey = {
       max: () => new Date(),
     },
     recorders: {
-      id: 127,
+      id: 112,
       type: 'inputList',
       placeholder: 'Recorder name',
       icon: 'people',
@@ -141,7 +139,7 @@ const survey = {
     },
   },
 
-  smp: {  
+  smp: {
     async create(Sample, Occurrence, taxon, surveySample) {
       const occurrence = new Occurrence({ attrs: { taxon } });
       const { activity } = surveySample.attrs;

@@ -1,20 +1,20 @@
 const sex = {
-  Male: 1947,
-  Female: 1948,
-  Mixed: 3482,
+  Male: 18432,
+  Female: 18433,
+  Mixed: 18434,
 };
 
 const stage = {
-  Adults: 3929,
-  Larvae: 3931,
-  Eggs: 3932,
-  Pupae: 3930,
-  'Larval webs': 14079,
+  Adults: 18529,
+  Larvae: 18530,
+  Eggs: 18531,
+  Pupae: 18532,
+  'Larval webs': 18533,
 };
 
 export default {
   name: 'butterflies',
-  taxonGroups: [104],
+  taxonGroups: [119],
   render: [
     {
       id: 'occ:number',
@@ -41,7 +41,7 @@ export default {
       },
       stage: {
         type: 'radio',
-        id: 293,
+        id: 119,
         label: 'Stage',
         icon: 'stage',
         info: 'Please pick the life stage.',
@@ -49,7 +49,7 @@ export default {
         values: stage,
       },
       number: {
-        id: 16,
+        id: 5,
         info: 'How many individuals of this type?',
         label: 'Abundance',
         icon: 'number',
@@ -58,16 +58,16 @@ export default {
       },
       'number-ranges': {
         type: 'radio',
-        id: 203,
+        id: 104,
         label: 'Abundance',
         icon: 'number',
         values: [
           { value: null, isDefault: true, label: 'Not Recorded' },
-          { value: '1', id: 2402 },
-          { value: '2-9', id: 2404 },
-          { value: '10-29', id: 2406 },
-          { value: '30-99', id: 2408 },
-          { value: '100+', id: 2410 },
+          { value: '1', id: 18426 },
+          { value: '2-9', id: 18427 },
+          { value: '10-29', id: 18428 },
+          { value: '30-99', id: 18429 },
+          { value: '100+', id: 18430 },
         ],
       },
     },

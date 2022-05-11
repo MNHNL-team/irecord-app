@@ -6,27 +6,27 @@ import userModel from 'user_model';
 import appModel from 'app_model';
 
 const sex = {
-  Male: 1947,
-  Female: 1948,
-  Mixed: 3482,
+  Male: 18432,
+  Female: 18433,
+  Mixed: 18434,
 };
 
 const stage = {
-  'Not recorded': 10647,
-  Adult: 2189,
-  Larva: 2190,
-  'Larval web': 2191,
-  'Larval case': 2192,
-  Mine: 2193,
-  Egg: 2194,
-  'Egg batch': 2195,
-  Pupa: 17556,
+  'Not recorded': 18438,
+  Adult: 18439,
+  Larva: 18440,
+  'Larval web': 18441,
+  'Larval case': 18442,
+  Mine: 18443,
+  Egg: 18444,
+  'Egg batch': 18445,
+  Pupa: 18446,
 };
 
 const survey = {
   name: 'moth',
   label: 'Moth',
-  id: 90,
+  id: 50,
   complex: true,
 
   webForm: 'enter-moth-sightings',
@@ -51,7 +51,6 @@ const survey = {
         const locationAttributes = {
           location_name: name, // location_name is a native indicia attr
           [keys.location_source.id]: source,
-          [keys.location_gridref.id]: gridref,
           [keys.location_altitude.id]: altitude,
           [keys.location_altitude_accuracy.id]: location.altitudeAccuracy,
           [keys.location_accuracy.id]: accuracy,
@@ -73,22 +72,21 @@ const survey = {
         return `${lat.toFixed(7)}, ${lon.toFixed(7)}`;
       },
     },
-    location_accuracy: { id: 282 },
-    location_altitude: { id: 283 },
-    location_altitude_accuracy: { id: 284 },
-    location_source: { id: 760 },
-    location_gridref: { id: 335 },
+    location_accuracy: { id: 176 },
+    location_altitude: { id: 38 },
+    location_altitude_accuracy: { id: 177 },
+    location_source: { id: 178 },
 
     device: {
-      id: 273,
+      id: 179,
       values: {
-        iOS: 2398,
-        Android: 2399,
+        iOS: 18418,
+        Android: 18419,
       },
     },
 
-    device_version: { id: 759 },
-    app_version: { id: 1139 },
+    device_version: { id: 180 },
+    app_version: { id: 181 },
 
     date: {
       values(date) {
@@ -102,7 +100,7 @@ const survey = {
     },
 
     recorders: {
-      id: 127,
+      id: 112,
       type: 'inputList',
       required: true,
       placeholder: 'Recorder name',
@@ -115,25 +113,25 @@ const survey = {
     },
 
     method: {
-      id: 263,
+      id: 184,
       type: 'radio',
       label: 'Method',
       info:
         'Please enter your sampling method (i.e. type of trap or recording method).',
       default: 'Not Recorded',
       values: {
-        'MV light': 2196,
-        'LED light': 17557,
-        'Actinic light': 2197,
-        'Light trapping': 2198,
-        'Daytime observation': 2199,
-        Dusking: 2200,
-        'Attracted to a lighted window': 2201,
-        Sugaring: 2202,
-        'Wine roping': 2203,
-        'Beating tray': 2204,
-        'Pheromone trap': 2205,
-        'Other method (add comment)': 2206,
+        'MV light': 18447,
+        'LED light': 18448,
+        'Actinic light': 18449,
+        'Light trapping': 18450,
+        'Daytime observation': 18451,
+        Dusking: 18452,
+        'Attracted to a lighted window': 18453,
+        Sugaring: 18454,
+        'Wine roping': 18455,
+        'Beating tray': 18456,
+        'Pheromone trap': 18457,
+        'Other method (add comment)': 18458,
       },
     },
 
@@ -162,7 +160,7 @@ const survey = {
         },
       },
       number: {
-        id: 133,
+        id: 5,
         label: 'Quantity',
         icon: 'number',
         type: 'slider',
@@ -170,7 +168,7 @@ const survey = {
       },
       stage: {
         type: 'radio',
-        id: 130,
+        id: 107,
         label: 'Stage',
         icon: 'stage',
         required: true,
@@ -188,7 +186,7 @@ const survey = {
         values: sex,
       },
       identifiers: {
-        id: 18,
+        id: 37,
         placeholder: 'Name',
         icon: 'user-plus',
         type: 'inputList',
@@ -258,7 +256,7 @@ const survey = {
 
   onSend() {
     return {
-      8: userModel.attrs.email,
+      34: userModel.attrs.email,
     };
   },
 

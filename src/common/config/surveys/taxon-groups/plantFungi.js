@@ -1,16 +1,10 @@
 export default {
   name: 'plants-fungi',
   taxonGroups: [
-    89,
-    78,
-    87,
-    99,
-    81,
-    148,
-    // 133,
-    // 129,
-
-    92, // fungi
+    // Plants excluding moss
+    84, 44, 128, 76, 115, 41, 75,
+    // Fungi
+    21
   ],
 
   render(model) {
@@ -51,23 +45,23 @@ export default {
         },
       },
       number: {
-        id: 16,
+        id: 5,
         label: 'Abundance',
         icon: 'number',
         type: 'slider',
         incrementShortcut: true,
       },
       'number-ranges': {
-        id: 523,
+        id: 103,
         type: 'radio',
         values: [
           { value: null, isDefault: true, label: 'Present' },
-          { value: 1, id: 665 },
-          { value: '2-5', id: 666 },
-          { value: '6-20', id: 667 },
-          { value: '21-100', id: 668 },
-          { value: '101-500', id: 669 },
-          { value: '500+', id: 670 },
+          { value: 1, id: 18420 },
+          { value: '2-5', id: 18421 },
+          { value: '6-20', id: 18422 },
+          { value: '21-100', id: 18423 },
+          { value: '101-500', id: 18424 },
+          { value: '500+', id: 18425 },
         ],
       },
     },

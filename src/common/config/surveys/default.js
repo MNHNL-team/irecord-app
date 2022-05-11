@@ -9,7 +9,7 @@ import coreAttributes from './index';
 
 const survey = {
   name: 'default',
-  id: 374,
+  id: 48,
   webForm: 'enter-app-record',
 
   taxonGroups: [], // all
@@ -39,7 +39,6 @@ const survey = {
         const locationAttributes = {
           location_name: name, // location_name is a native indicia attr
           [keys.location_source.id]: source,
-          [keys.location_gridref.id]: gridref,
           [keys.location_altitude.id]: altitude,
           [keys.location_altitude_accuracy.id]: location.altitudeAccuracy,
           [keys.location_accuracy.id]: accuracy,
@@ -57,22 +56,21 @@ const survey = {
         return `${lat.toFixed(7)}, ${lon.toFixed(7)}`;
       },
     },
-    location_accuracy: { id: 282 },
-    location_altitude: { id: 283 },
-    location_altitude_accuracy: { id: 284 },
-    location_source: { id: 760 },
-    location_gridref: { id: 335 },
+    location_accuracy: { id: 176 },
+    location_altitude: { id: 38 },
+    location_altitude_accuracy: { id: 177 },
+    location_source: { id: 178 },
 
     device: {
-      id: 273,
+      id: 179,
       values: {
-        iOS: 2398,
-        Android: 2399,
+        iOS: 18418,
+        Android: 18419,
       },
     },
 
-    device_version: { id: 759 },
-    app_version: { id: 1139 },
+    device_version: { id: 180 },
+    app_version: { id: 181 },
 
     date: {
       values(date) {
@@ -130,7 +128,7 @@ const survey = {
         },
       },
       number: {
-        id: 16,
+        id: 5,
         info: 'How many individuals of this type?',
         label: 'Abundance',
         icon: 'number',
@@ -138,16 +136,16 @@ const survey = {
         incrementShortcut: true,
       },
       'number-ranges': {
-        id: 523,
+        id: 103,
         default: 'Present',
         type: 'radio',
         values: {
-          1: 665,
-          '2-5': 666,
-          '6-20': 667,
-          '21-100': 668,
-          '101-500': 669,
-          '500+': 670,
+          1: 18420,
+          '2-5': 18421,
+          '6-20': 18422,
+          '21-100': 18423,
+          '101-500': 18424,
+          '500+': 18425,
         },
       },
       stage: {
@@ -155,9 +153,9 @@ const survey = {
         info: 'Please pick the life stage.',
         default: 'Not Recorded',
         values: {
-          Adult: 1950,
-          'Pre-adult': 1951,
-          Other: 1952,
+          Adult: 18435,
+          'Pre-adult': 18436,
+          Other: 18437,
         },
         icon: 'stage',
         type: 'radio',
@@ -167,15 +165,15 @@ const survey = {
         info: 'Please indicate the sex of the organism.',
         default: 'Not Recorded',
         values: {
-          Male: 1947,
-          Female: 1948,
-          Mixed: 3482,
+          Male: 18432,
+          Female: 18433,
+          Mixed: 18434,
         },
         icon: 'gender',
         type: 'radio',
       },
       identifiers: {
-        id: 18,
+        id: 37,
         info:
           'If anyone helped with the identification please enter their name here.',
         icon: 'user-plus',

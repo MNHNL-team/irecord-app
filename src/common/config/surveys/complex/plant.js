@@ -3,7 +3,6 @@
  **************************************************************************** */
 import DateHelp from 'helpers/date';
 import LocHelp from 'helpers/location';
-import VCs from 'common/data/vice_counties.data';
 import userModel from 'user_model';
 import appModel from 'app_model';
 
@@ -77,25 +76,23 @@ const sharedSmpAttrs = {
       return location.gridref;
     },
   },
-  location_accuracy: { id: 282 },
-  location_altitude: { id: 283 },
-  location_altitude_accuracy: { id: 284 },
-  location_source: { id: 760 },
-  location_gridref: { id: 335 },
+  location_accuracy: { id: 176 },
+  location_altitude: { id: 38 },
+  location_altitude_accuracy: { id: 177 },
+  location_source: { id: 178 },
 };
 
 const survey = {
   name: 'plant',
   label: 'Plant',
-  id: 325,
+  id: 49,
   complex: true,
   webForm: 'enter-vascular-plants',
 
-  taxonGroups: [89, 78, 87, 99, 81, 148, 133, 129],
+  taxonGroups: [84, 44, 128, 76, 115, 41, 75, 126, 42],
 
   render: [
     'smp:location',
-    'smp:vice-county',
     'smp:date',
     'smp:recorders',
     'smp:comment',
@@ -105,18 +102,18 @@ const survey = {
     ...sharedSmpAttrs,
 
     device: {
-      id: 273,
+      id: 179,
       values: {
-        iOS: 2398,
-        Android: 2399,
+        iOS: 18418,
+        Android: 18419,
       },
     },
 
-    device_version: { id: 759 },
-    app_version: { id: 1139 },
+    device_version: { id: 180 },
+    app_version: { id: 181 },
 
     recorders: {
-      id: 1018,
+      id: 182,
       type: 'inputList',
       placeholder: 'Recorder name',
       icon: 'people',
@@ -155,63 +152,40 @@ const survey = {
       },
     },
     recorder_count: {
-      id: 992,
+      id: 185,
       values: {
-        1: 7299,
-        2: 7300,
-        '3-5': 7301,
-        '6-10': 7302,
-        '21+': 7304,
-        '11-20': 7303,
-      },
-    },
-    'vice-county': {
-      id: 991,
-      type: 'input',
-      icon: 'business',
-      label: 'Vice County',
-      placeholder: 'Vice County name',
-      lookup: VCs,
-      displayValueParse(val) {
-        return val.name;
-      },
-      values(val, submission) {
-        const attributes = {};
-
-        const { id } = survey.attrs['vice-county'];
-        const name = `smpAttr:${id}:name`;
-        const nameVal = val.name;
-        attributes[name] = nameVal;
-
-        submission.fields = { ...submission.fields, ...attributes };
-
-        return parseInt(val.id, 10);
+        1: 18459,
+        2: 18460,
+        '3-5': 18461,
+        '6-10': 18462,
+        '11-20': 18463,
+        '21+': 18464,
       },
     },
     'time-surveying': {
-      id: 993,
+      id: 186,
       values: {
-        '29 mins or less': 7468,
-        '30 to 59 mins': 7469,
-        '1h - 1h29mins': 7470,
-        '1h30mins - 1h59mins': 7471,
-        '2h - 2h29mins': 7472,
-        '2h30mins -2h59mins': 7473,
-        '3h - 3h29mins': 7474,
-        '3h30mins - 3h59mins': 7475,
-        '4h - 4h29mins': 7476,
-        '4h30mins - 4h59mins': 7477,
-        '5h - 5h29mins': 7478,
-        '5h30mins - 5h59mins': 7479,
-        '6h - 6h29mins': 7480,
-        '6h30mins - 6h59mins': 7481,
-        '7h - 7h29mins': 7482,
-        '7h30mins - 7h59mins': 7483,
-        '8h - 8h29mins': 7484,
-        '8h30mins - 8h59mins': 7485,
-        '9h - 9h29mins': 7486,
-        '9h30mins - 9h59mins': 7487,
-        '10hrs or longer': 7488,
+        '29 mins or less': 18465,
+        '30 to 59 mins': 18466,
+        '1h - 1h29mins': 18467,
+        '1h30mins - 1h59mins': 18468,
+        '2h - 2h29mins': 18469,
+        '2h30mins -2h59mins': 18470,
+        '3h - 3h29mins': 18471,
+        '3h30mins - 3h59mins': 18472,
+        '4h - 4h29mins': 18473,
+        '4h30mins - 4h59mins': 18474,
+        '5h - 5h29mins': 18475,
+        '5h30mins - 5h59mins': 18476,
+        '6h - 6h29mins': 18477,
+        '6h30mins - 6h59mins': 18478,
+        '7h - 7h29mins': 18479,
+        '7h30mins - 7h59mins': 18480,
+        '8h - 8h29mins': 18481,
+        '8h30mins - 8h59mins': 18482,
+        '9h - 9h29mins': 18483,
+        '9h30mins - 9h59mins': 18484,
+        '10hrs or longer': 18485,
       },
     },
 
@@ -263,7 +237,7 @@ const survey = {
           },
         },
         abundance: {
-          id: 610,
+          id: 108,
           icon: 'number',
           info: 'Abundance (DAFOR, LA, LF or count).',
           type: 'input',
@@ -275,38 +249,38 @@ const survey = {
           },
         },
         status: {
-          id: 507,
+          id: 109,
           info: 'Please pick the status.',
           default: 'Not Recorded',
           type: 'radio',
           values: {
-            Native: 5709,
-            Unknown: 5710,
-            Introduced: 6775,
-            'Introduced - planted': 5711,
-            'Introduced - surviving': 10662,
-            'Introduced - casual': 10663,
-            'Introduced - established': 5712,
-            'Introduced - invasive': 5713,
+            Native: 18486,
+            Unknown: 18487,
+            Introduced: 18488,
+            'Introduced - planted': 18489,
+            'Introduced - surviving': 18490,
+            'Introduced - casual': 18491,
+            'Introduced - established': 18492,
+            'Introduced - invasive': 18493,
           },
         },
         stage: {
-          id: 466,
+          id: 110,
           info: 'Please pick the life stage.',
           icon: 'stage',
           default: 'Not Recorded',
           type: 'radio',
           values: {
-            Flowering: 5331,
-            Fruiting: 5330,
-            Juvenile: 5328,
-            Mature: 5332,
-            Seedling: 5327,
-            Vegetative: 5329,
+            Flowering: 18494,
+            Fruiting: 18495,
+            Juvenile: 18496,
+            Mature: 18497,
+            Seedling: 18498,
+            Vegetative: 18499,
           },
         },
         identifiers: {
-          id: 125,
+          id: 37,
           icon: 'user-plus',
           placeholder: 'Name',
           type: 'inputList',
@@ -400,8 +374,7 @@ const survey = {
 
     const sample = new Sample({
       attrs: {
-        location_type: 'british',
-        sample_method_id: 7305,
+        sample_method_id: 18500,
         recorders,
       },
       metadata: {

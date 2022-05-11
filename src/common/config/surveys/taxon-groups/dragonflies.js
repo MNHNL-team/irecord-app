@@ -1,16 +1,16 @@
 const numRanges = {
-  1: 665,
-  '2-5': 666,
-  '6-20': 667,
-  '21-100': 668,
-  '101-500': 669,
-  '500+': 670,
-  Present: 671,
+  1: 18420,
+  '2-5': 18421,
+  '6-20': 18422,
+  '21-100': 18423,
+  '101-500': 18424,
+  '500+': 18425,
+  Present: 18534,
 };
 
 export default {
   name: 'dragonflies',
-  taxonGroups: [107],
+  taxonGroups: [56],
 
   render: [
     'smp:site',
@@ -27,27 +27,27 @@ export default {
   attrs: {
     site: {
       type: 'radio',
-      id: 59,
+      id: 188,
       label: 'Site type',
       icon: 'land',
       default: 'Not selected',
       values: {
-        Lake: 672,
-        Reservoir: 673,
-        'Mill lodge': 674,
-        'Large pond': 675,
-        'Small pond': 676,
-        'Garden pond': 677,
-        River: 678,
-        Stream: 679,
-        Ditch: 680,
-        Canal: 681,
-        'Other (please specify in comments)': 682,
+        Lake: 18535,
+        Reservoir: 18536,
+        'Mill lodge': 18537,
+        'Large pond': 18538,
+        'Small pond': 18539,
+        'Garden pond': 18540,
+        River: 18541,
+        Stream: 18542,
+        Ditch: 18543,
+        Canal: 18544,
+        'Other (please specify in comments)': 18545,
       },
     },
     siteOther: {
       type: 'text',
-      id: 60,
+      id: 189,
       label: 'Other Site Type',
     },
   },
@@ -57,7 +57,7 @@ export default {
 
       adCount: {
         type: 'radio',
-        id: 34,
+        id: 120,
         label: 'Adults',
         icon: 'number',
         info: 'How many individuals of this type?',
@@ -66,7 +66,7 @@ export default {
       },
       coCount: {
         type: 'radio',
-        id: 35,
+        id: 121,
         label: 'Cop. pairs',
         icon: 'number',
         info: 'How many individuals of this type?',
@@ -75,7 +75,7 @@ export default {
       },
       ovCount: {
         type: 'radio',
-        id: 36,
+        id: 122,
         label: 'Ovip. females',
         icon: 'number',
         info: 'How many individuals of this type?',
@@ -84,7 +84,7 @@ export default {
       },
       scCount: {
         type: 'radio',
-        id: 842,
+        id: 123,
         label: 'Ovip. scars',
         icon: 'number',
         info: 'This attribute should be recorded for Willow Emerald only.',
@@ -93,7 +93,7 @@ export default {
       },
       laCount: {
         type: 'radio',
-        id: 37,
+        id: 124,
         label: 'Larvae',
         icon: 'number',
         info: 'How many individuals of this type?',
@@ -102,7 +102,7 @@ export default {
       },
       exCount: {
         type: 'radio',
-        id: 38,
+        id: 125,
         label: 'Exuviae',
         icon: 'number',
         info: 'How many individuals of this type?',
@@ -111,7 +111,7 @@ export default {
       },
       emCount: {
         type: 'radio',
-        id: 39,
+        id: 126,
         label: 'Emergents',
         icon: 'number',
         info: 'How many individuals of this type?',
