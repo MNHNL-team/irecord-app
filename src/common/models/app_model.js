@@ -29,7 +29,7 @@ const getDefaultAttrs = () => ({
   feedbackGiven: false,
   taxonGroupFilters: [],
   searchNamesOnly: null,
-  sendAnalytics: true,
+  sendAnalytics: false,
   appSession: 0,
 });
 
