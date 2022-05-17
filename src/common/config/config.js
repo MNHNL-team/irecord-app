@@ -50,7 +50,7 @@ const CONFIG = {
   indicia: {
     host: HOST,
     api_key: process.env.APP_INDICIA_API_KEY,
-    website_id: 2,
+    website_id: process.env.APP_WEBSITE_ID,
   },
 };
 
