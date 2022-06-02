@@ -4,7 +4,7 @@
 import Indicia from '@indicia-js/core';
 
 const HOST =
-  process.env.APP_INDICIA_API_HOST || 'https://data-new.mnhn.lu/';
+  process.env.APP_INDICIA_API_HOST || 'https://indicia.mnhn.lu/';
 
 const isTestEnv = process.env.NODE_ENV === 'test';
 
