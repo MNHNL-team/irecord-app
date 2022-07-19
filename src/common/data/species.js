@@ -32,7 +32,7 @@ async function fetch() {
   // eslint-disable-next-line no-constant-condition
   while (true) {
     const options = {
-      url: `https://data-new.mnhn.lu/api/v1/reports/library/taxa/taxa_list_for_app.xml?taxon_list_id=13&limit=${FETCH_LIMIT}&offset=${offset}`,
+      url: process.env.APP_INDICIA_API_HOST + `api/v1/reports/library/taxa/taxa_list_for_app.xml?taxon_list_id=13&limit=${FETCH_LIMIT}&offset=${offset}`,
       headers: {
         'x-api-key': apiKey,
         'Cache-Control': 'no-cache',

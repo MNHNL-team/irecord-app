@@ -116,7 +116,9 @@ const helpers = {
    * @returns {Array} latlng pairs (SW, SE, NE, NW)
    */
   getSquareBounds(location) {
-    if (location.latitude) {
+    // No grid ref support in current app version
+    return null;
+    /*if (location.latitude) {
       const gridRefString = helpers.locationToGrid(location);
       if (!gridRefString) {
         return null;
@@ -149,7 +151,7 @@ const helpers = {
       ];
     }
 
-    return null;
+    return null;*/
   },
 
   /**

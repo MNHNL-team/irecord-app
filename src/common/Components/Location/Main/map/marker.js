@@ -123,11 +123,11 @@ const marker = {
       latitude: parseFloat(e.latlng.lat.toFixed(5)),
       longitude: parseFloat(e.latlng.lng.toFixed(5)),
       source: 'map',
+      gridref: null,
     };
 
     const zoom = this.getMapZoom();
     location.accuracy = this._mapZoomToMetres(zoom);
-    location.gridref = LocHelp.locationToGrid(location);
 
     // trigger won't work to bubble up
     onClick(location)

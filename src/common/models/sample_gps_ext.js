@@ -6,7 +6,7 @@
  **************************************************************************** */
 import GPS from 'helpers/GPS';
 import Log from 'helpers/log';
-import LocHelp from 'helpers/location';
+// import LocHelp from 'helpers/location';
 import appModel from 'app_model';
 import bigu from 'bigu';
 import { observable } from 'mobx';
@@ -16,7 +16,9 @@ export function updateSampleLocation(sample, location) {
     const newLocation = { ...location };
     newLocation.source = 'gps';
     newLocation.updateTime = new Date(); // track when gps was acquired
-    newLocation.gridref = LocHelp.locationToGrid(newLocation);
+    // No grid ref support in current app version.
+    //newLocation.gridref = LocHelp.locationToGrid(newLocation);
+    newLocation.gridref = null;
 
     // extend old location to preserve its previous attributes like name or id
     const oldLocation = sample.attrs.location;
