@@ -60,7 +60,7 @@ const exec = () => ({
     stdout: true,
   },
   add_platforms: {
-    command: 'cd cordova && npx cordova platforms add ios android',
+    command: 'cd cordova && npx cordova platforms add browser',
   },
   /**
    * $ANDROID_KEYSTORE must be set up to point to your android certificates keystore
@@ -74,6 +74,10 @@ const exec = () => ({
   build_ios: {
     command: 'cd cordova && npx cordova build ios',
     stdout: true,
+  },
+
+  build_browser: {
+    command: 'cd cordova && npx cordova build browser',
   },
 });
 
@@ -94,14 +98,15 @@ module.exports = grunt => {
     'exec:build',
 
     'exec:init',
-    'exec:resources',
+//    'exec:resources',
 
-    'exec:clean_www',
+//    'exec:clean_www',
     'exec:copy_build',
-    'replace:config',
+//    'replace:config',
     'exec:add_platforms',
 
-    'exec:build_ios',
-    'exec:build_android',
+//    'exec:build_ios',
+//    'exec:build_android',
+    'exec:build_browser',
   ]);
 };
