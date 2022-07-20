@@ -87,10 +87,10 @@ class AppModel {
 }
 
 // add previous/pased saved locations management
-AppModel.prototype = Object.assign(AppModel.prototype, pastLocationsExtension);
+Object.assign(AppModel.prototype, pastLocationsExtension);
 
 // add sample/occurrence attribute management
-AppModel.prototype = Object.assign(AppModel.prototype, attributeLockExtension);
+Object.assign(AppModel.prototype, attributeLockExtension);
 
 const appModel = new AppModel();
 export { appModel as default, AppModel };

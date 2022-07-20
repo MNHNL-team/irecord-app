@@ -252,10 +252,10 @@ class UserModel {
 }
 
 // add activities management
-UserModel.prototype = Object.assign(UserModel.prototype, activitiesExtension);
+Object.assign(UserModel.prototype, activitiesExtension);
 
 // add statistics management
-// UserModel.prototype = Object.assign(UserModel.prototype, statisticsExtension);
+// Object.assign(UserModel.prototype, statisticsExtension);
 
 const userModel = new UserModel();
 export { userModel as default, UserModel };

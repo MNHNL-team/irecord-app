@@ -416,7 +416,7 @@ class Sample extends Indicia.Sample {
 }
 
 // add geolocation functionality
-Sample.prototype = Object.assign(Sample.prototype, GPSExtension);
+Object.assign(Sample.prototype, GPSExtension);
 Sample.prototype.constructor = Sample;
 
 export { Sample as default };
